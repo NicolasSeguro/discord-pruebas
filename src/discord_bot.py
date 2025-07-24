@@ -24,7 +24,8 @@ class CreativeBot(commands.Bot):
         super().__init__(
             command_prefix='!',
             intents=intents,
-            description='Bot creativo que publica contenido diario inspirador'
+            description='Bot creativo que publica contenido diario inspirador',
+            help_command=None  # Deshabilitar comando help por defecto
         )
         
         self.channel_id = os.getenv('DISCORD_CHANNEL_ID')
@@ -65,7 +66,7 @@ class CreativeBot(commands.Bot):
         async def prompt(ctx):
             await self.get_prompt(ctx)
         
-        @self.command(name='ayuda', aliases=['help', 'help_bot'])
+        @self.command(name='ayuda', aliases=['help_bot'])
         async def ayuda(ctx):
             await self.help_command(ctx)
     
