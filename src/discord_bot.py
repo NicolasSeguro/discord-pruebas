@@ -30,6 +30,44 @@ class CreativeBot(commands.Bot):
         self.channel_id = os.getenv('DISCORD_CHANNEL_ID')
         self.publish_hour = int(os.getenv('PUBLISH_HOUR', 9))
         self.publish_minute = int(os.getenv('PUBLISH_MINUTE', 0))
+        
+        # Registrar comandos
+        self.setup_commands()
+    
+    def setup_commands(self):
+        """Registra todos los comandos del bot."""
+        # Crear comandos manualmente para asegurar que se registren
+        @self.command(name='ping')
+        async def ping(ctx):
+            await ctx.send("🏓 ¡Pong! Bot funcionando correctamente.")
+        
+        @self.command(name='inspiracion', aliases=['inspire', 'daily'])
+        async def inspiracion(ctx):
+            await self.manual_inspiration(ctx)
+        
+        @self.command(name='foto', aliases=['photo', 'imagen'])
+        async def foto(ctx, *, query=None):
+            await self.get_photo(ctx, query=query)
+        
+        @self.command(name='herramienta', aliases=['tool'])
+        async def herramienta(ctx):
+            await self.get_tool(ctx)
+        
+        @self.command(name='recurso', aliases=['resource'])
+        async def recurso(ctx):
+            await self.get_resource(ctx)
+        
+        @self.command(name='idea', aliases=['creative'])
+        async def idea(ctx):
+            await self.get_idea(ctx)
+        
+        @self.command(name='prompt', aliases=['ai'])
+        async def prompt(ctx):
+            await self.get_prompt(ctx)
+        
+        @self.command(name='ayuda', aliases=['help', 'help_bot'])
+        async def ayuda(ctx):
+            await self.help_command(ctx)
     
     async def on_ready(self):
         """Evento que se ejecuta cuando el bot está listo."""
