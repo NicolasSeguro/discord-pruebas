@@ -1,6 +1,6 @@
 # 🤖 Bot Creativo de Discord
 
-Un bot de Discord inteligente que publica automáticamente contenido diario inspirador para desarrolladores, combinando fuentes externas con generación creativa usando IA.
+Un bot de Discord inteligente que publica automáticamente contenido diario inspirador para tu comunidad de Discord, combinando fuentes externas con generación creativa usando IA.
 
 ## ✨ Características
 
@@ -312,12 +312,10 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 - **Documentación**: Este README
 - **Issues**: GitHub Issues
 - **Discusiones**: GitHub Discussions
-- **Email**: [Contacto del desarrollador]
+- **Redes**: @nikoseguro | /nicolas-seguro
 
 ---
 
-**Desarrollado con ❤️ por Manus AI**
+**Desarrollado con ❤️ por Niko Seguro**
 
-*¡Inspira a tu comunidad de desarrolladores con contenido creativo diario!*
-
-# discord-pruebas
+*¡Inspira a tu comunidad de Discord con contenido creativo diario!*
