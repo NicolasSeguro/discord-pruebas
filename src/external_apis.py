@@ -95,55 +95,103 @@ class PublicAPIsClient:
         Returns:
             Diccionario con información de la herramienta
         """
-        # Lista predefinida de herramientas útiles para desarrolladores
+        # Lista predefinida de herramientas útiles para artistas y creativos
         tools = [
             {
-                'name': 'Unsplash API',
-                'description': 'API gratuita para obtener fotografías de alta calidad',
-                'url': 'https://unsplash.com/developers',
-                'category': 'Photography'
+                'name': 'Adobe Creative Cloud',
+                'description': 'Suite completa de herramientas creativas profesionales',
+                'url': 'https://www.adobe.com/creativecloud.html',
+                'category': 'Design'
             },
             {
-                'name': 'Discord.py',
-                'description': 'Librería de Python para crear bots de Discord',
-                'url': 'https://discordpy.readthedocs.io/',
-                'category': 'Development'
+                'name': 'Blender',
+                'description': 'Software gratuito de modelado 3D y animación',
+                'url': 'https://www.blender.org/',
+                'category': '3D'
             },
             {
-                'name': 'OpenAI API',
-                'description': 'API para generar texto e imágenes con IA',
-                'url': 'https://openai.com/api/',
-                'category': 'Machine Learning'
+                'name': 'Procreate',
+                'description': 'App de dibujo digital para iPad',
+                'url': 'https://procreate.art/',
+                'category': 'Digital Art'
             },
             {
-                'name': 'GitHub API',
-                'description': 'API para interactuar con repositorios de GitHub',
-                'url': 'https://docs.github.com/en/rest',
-                'category': 'Development'
+                'name': 'Figma',
+                'description': 'Herramienta de diseño colaborativo en la nube',
+                'url': 'https://www.figma.com/',
+                'category': 'Design'
             },
             {
-                'name': 'Pexels API',
-                'description': 'API gratuita para fotos y videos de stock',
-                'url': 'https://www.pexels.com/api/',
-                'category': 'Photography'
+                'name': 'Canva',
+                'description': 'Plataforma de diseño gráfico online',
+                'url': 'https://www.canva.com/',
+                'category': 'Design'
             },
             {
-                'name': 'JSONPlaceholder',
-                'description': 'API falsa para testing y prototipado',
-                'url': 'https://jsonplaceholder.typicode.com/',
-                'category': 'Development'
+                'name': 'Midjourney',
+                'description': 'IA para generación de arte y conceptos',
+                'url': 'https://www.midjourney.com/',
+                'category': 'AI Art'
             },
             {
-                'name': 'Cat Facts API',
-                'description': 'API para obtener datos curiosos sobre gatos',
-                'url': 'https://catfact.ninja/',
-                'category': 'Entertainment'
+                'name': 'Stable Diffusion',
+                'description': 'Modelo de IA para crear imágenes desde texto',
+                'url': 'https://stability.ai/',
+                'category': 'AI Art'
             },
             {
-                'name': 'Lorem Picsum',
-                'description': 'Servicio para obtener imágenes placeholder',
-                'url': 'https://picsum.photos/',
-                'category': 'Photography'
+                'name': 'DALL-E',
+                'description': 'Sistema de OpenAI para generar imágenes',
+                'url': 'https://openai.com/dall-e-2',
+                'category': 'AI Art'
+            },
+            {
+                'name': 'Cinema 4D',
+                'description': 'Software profesional de modelado y animación 3D',
+                'url': 'https://www.maxon.net/cinema4d',
+                'category': '3D'
+            },
+            {
+                'name': 'Unity',
+                'description': 'Motor de juegos para crear experiencias 3D',
+                'url': 'https://unity.com/',
+                'category': '3D'
+            },
+            {
+                'name': 'Unreal Engine',
+                'description': 'Motor de juegos para gráficos de alta calidad',
+                'url': 'https://www.unrealengine.com/',
+                'category': '3D'
+            },
+            {
+                'name': 'DaVinci Resolve',
+                'description': 'Software de edición de video profesional',
+                'url': 'https://www.blackmagicdesign.com/davinciresolve/',
+                'category': 'Video'
+            },
+            {
+                'name': 'After Effects',
+                'description': 'Software de composición y efectos visuales',
+                'url': 'https://www.adobe.com/products/aftereffects.html',
+                'category': 'Motion Graphics'
+            },
+            {
+                'name': 'Notion',
+                'description': 'Plataforma para organizar proyectos creativos',
+                'url': 'https://www.notion.so/',
+                'category': 'Productivity'
+            },
+            {
+                'name': 'Behance',
+                'description': 'Plataforma para mostrar portafolios creativos',
+                'url': 'https://www.behance.net/',
+                'category': 'Portfolio'
+            },
+            {
+                'name': 'ArtStation',
+                'description': 'Comunidad para artistas digitales y 3D',
+                'url': 'https://www.artstation.com/',
+                'category': 'Community'
             }
         ]
         
@@ -151,59 +199,101 @@ class PublicAPIsClient:
     
     def get_random_resource(self) -> Dict[str, str]:
         """
-        Obtiene un recurso útil aleatorio para desarrolladores.
+        Obtiene un recurso útil aleatorio para artistas y creativos.
         
         Returns:
             Diccionario con información del recurso
         """
         resources = [
             {
-                'name': 'MDN Web Docs',
-                'description': 'Documentación completa para tecnologías web',
-                'url': 'https://developer.mozilla.org/',
-                'type': 'Documentation'
+                'name': 'Pinterest',
+                'description': 'Plataforma de inspiración visual y moodboards',
+                'url': 'https://www.pinterest.com/',
+                'type': 'Inspiration'
             },
             {
-                'name': 'Stack Overflow',
-                'description': 'Comunidad de preguntas y respuestas para programadores',
-                'url': 'https://stackoverflow.com/',
+                'name': 'Dribbble',
+                'description': 'Comunidad de diseñadores para mostrar trabajos',
+                'url': 'https://dribbble.com/',
                 'type': 'Community'
             },
             {
-                'name': 'GitHub',
-                'description': 'Plataforma de desarrollo colaborativo',
-                'url': 'https://github.com/',
-                'type': 'Platform'
+                'name': 'Behance',
+                'description': 'Plataforma para portafolios creativos profesionales',
+                'url': 'https://www.behance.net/',
+                'type': 'Portfolio'
             },
             {
-                'name': 'Codecademy',
-                'description': 'Plataforma interactiva para aprender programación',
-                'url': 'https://www.codecademy.com/',
+                'name': 'ArtStation',
+                'description': 'Comunidad para artistas digitales y 3D',
+                'url': 'https://www.artstation.com/',
+                'type': 'Community'
+            },
+            {
+                'name': 'DeviantArt',
+                'description': 'Comunidad de artistas digitales y tradicionales',
+                'url': 'https://www.deviantart.com/',
+                'type': 'Community'
+            },
+            {
+                'name': 'Unsplash',
+                'description': 'Fotografías de alta calidad gratuitas',
+                'url': 'https://unsplash.com/',
+                'type': 'Photography'
+            },
+            {
+                'name': 'Pexels',
+                'description': 'Fotos y videos gratuitos de alta calidad',
+                'url': 'https://www.pexels.com/',
+                'type': 'Photography'
+            },
+            {
+                'name': 'Freepik',
+                'description': 'Recursos gráficos, vectores y fotos',
+                'url': 'https://www.freepik.com/',
+                'type': 'Graphics'
+            },
+            {
+                'name': 'Creative Market',
+                'description': 'Mercado de recursos creativos premium',
+                'url': 'https://creativemarket.com/',
+                'type': 'Marketplace'
+            },
+            {
+                'name': 'Envato Elements',
+                'description': 'Suscripción a recursos creativos ilimitados',
+                'url': 'https://elements.envato.com/',
+                'type': 'Marketplace'
+            },
+            {
+                'name': 'Skillshare',
+                'description': 'Plataforma de cursos creativos online',
+                'url': 'https://www.skillshare.com/',
                 'type': 'Learning'
             },
             {
-                'name': 'FreeCodeCamp',
-                'description': 'Cursos gratuitos de programación y desarrollo web',
-                'url': 'https://www.freecodecamp.org/',
+                'name': 'Domestika',
+                'description': 'Cursos de diseño, ilustración y creatividad',
+                'url': 'https://www.domestika.org/',
                 'type': 'Learning'
             },
             {
-                'name': 'Can I Use',
-                'description': 'Compatibilidad de características web en navegadores',
-                'url': 'https://caniuse.com/',
-                'type': 'Tool'
+                'name': 'YouTube',
+                'description': 'Tutoriales gratuitos de diseño y arte',
+                'url': 'https://www.youtube.com/',
+                'type': 'Learning'
             },
             {
-                'name': 'Regex101',
-                'description': 'Herramienta online para probar expresiones regulares',
-                'url': 'https://regex101.com/',
-                'type': 'Tool'
+                'name': 'Instagram',
+                'description': 'Red social para mostrar y descubrir arte',
+                'url': 'https://www.instagram.com/',
+                'type': 'Social'
             },
             {
-                'name': 'Postman',
-                'description': 'Plataforma para desarrollo y testing de APIs',
-                'url': 'https://www.postman.com/',
-                'type': 'Tool'
+                'name': 'TikTok',
+                'description': 'Plataforma para contenido creativo corto',
+                'url': 'https://www.tiktok.com/',
+                'type': 'Social'
             }
         ]
         
@@ -216,37 +306,37 @@ class ContentGenerator:
         self.openai_api_key = os.getenv('OPENAI_API_KEY')
         self.openai_api_base = os.getenv('OPENAI_API_BASE')
         
-        # Ideas predefinidas como fallback
+        # Ideas predefinidas como fallback para artistas y creativos
         self.fallback_ideas = [
-            "Crea una aplicación que convierta código en poesía visual",
-            "Diseña un bot que genere paletas de colores basadas en emociones",
-            "Desarrolla una herramienta que transforme música en patrones geométricos",
-            "Construye un generador de historias interactivas usando APIs públicas",
-            "Crea un visualizador de datos que convierta estadísticas en arte",
-            "Diseña una app que genere fondos de pantalla basados en el clima",
-            "Desarrolla un bot que cree memes usando inteligencia artificial",
-            "Construye una herramienta que transforme texto en paisajes sonoros",
-            "Crea un juego donde los jugadores programen robots virtuales",
-            "Diseña una red social para compartir algoritmos como arte",
-            "Desarrolla una app que genere música basada en patrones de código",
-            "Construye un asistente IA que escriba documentación automáticamente",
-            "Crea una plataforma para colaborar en proyectos usando realidad virtual",
-            "Diseña un sistema que convierta emociones en interfaces de usuario",
-            "Desarrolla una herramienta que genere APIs basadas en lenguaje natural"
+            "Crea una serie de ilustraciones que representen emociones como paisajes abstractos",
+            "Diseña un personaje que evolucione visualmente según su historia",
+            "Desarrolla un concepto de marca que combine minimalismo con tecnología",
+            "Construye un mundo visual donde los colores tengan personalidades",
+            "Crea una campaña publicitaria que use realidad aumentada",
+            "Diseña una app que convierta fotos en pinturas de diferentes estilos",
+            "Desarrolla un concepto de packaging que cuente una historia",
+            "Construye un universo visual para una banda de música",
+            "Crea una serie de NFTs que evolucionen con el tiempo",
+            "Diseña una experiencia inmersiva para una exposición de arte",
+            "Desarrolla un concepto de moda que combine tradición y futuro",
+            "Construye un sistema de iconografía para una ciudad del futuro",
+            "Crea una campaña que use el arte como activismo social",
+            "Diseña un juego visual que explore la psicología del color",
+            "Desarrolla un concepto de arquitectura que sea una obra de arte"
         ]
         
         self.fallback_prompts = [
-            "Un gato programador escribiendo código en un café flotante en el espacio",
-            "Una ciudad futurista donde los edificios están hechos de código binario",
-            "Un dragón que respira algoritmos en lugar de fuego",
-            "Una biblioteca infinita donde cada libro contiene un lenguaje de programación diferente",
-            "Un océano de datos donde nadan peces hechos de píxeles",
-            "Un jardín donde crecen árboles de sintaxis y flores de variables",
-            "Una montaña rusa que viaja a través de diferentes frameworks de desarrollo",
-            "Un laboratorio donde los científicos mezclan APIs como pociones mágicas",
-            "Un robot chef que cocina aplicaciones web en una cocina cibernética",
-            "Una orquesta de inteligencias artificiales tocando sinfonías de código",
-            "Un museo donde las obras de arte son algoritmos vivientes",
+            "Un dragón de cristal que respira arcoíris en un bosque de neón",
+            "Una ciudad flotante construida con nubes y rayos de luz",
+            "Un jardín donde las flores son instrumentos musicales vivientes",
+            "Un océano de tinta donde nadan criaturas hechas de pinceladas",
+            "Una biblioteca donde los libros cobran vida y bailan",
+            "Un laboratorio donde los científicos mezclan colores como pociones mágicas",
+            "Un robot artista que pinta con emociones en lugar de pintura",
+            "Una orquesta de mariposas tocando sinfonías de colores",
+            "Un museo donde las obras de arte cobran vida por la noche",
+            "Una montaña rusa que viaja a través de diferentes estilos artísticos",
+            "Un chef que cocina platos que son obras de arte comestibles",
             "Una escuela mágica donde se enseñan hechizos de programación",
             "Un parque de diversiones construido dentro de una base de datos",
             "Una nave espacial pilotada por un sistema operativo consciente",

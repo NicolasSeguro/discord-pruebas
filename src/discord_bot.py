@@ -45,15 +45,15 @@ class CreativeBot(commands.Bot):
         @self.command(name='inspiracion', aliases=['inspire', 'daily'])
         async def inspiracion(ctx):
             # Implementar directamente aquí
-            photo = unsplash_client.get_random_photo(query="inspiration")
+            photo = unsplash_client.get_random_photo(query="art creative inspiration")
             tool = apis_client.get_random_tool()
             resource = apis_client.get_random_resource()
             creative_idea = content_generator.generate_creative_idea()
             ai_prompt = content_generator.generate_ai_prompt()
             
             embed = discord.Embed(
-                title="🌟 Inspiración Creativa Completa",
-                description="Tu dosis diaria de creatividad y herramientas útiles",
+                title="🎨 Inspiración Artística Completa",
+                description="Tu dosis diaria de creatividad visual y herramientas para artistas",
                 color=0x7289DA
             )
             
@@ -131,25 +131,25 @@ class CreativeBot(commands.Bot):
         @self.command(name='ayuda', aliases=['help_bot'])
         async def ayuda(ctx):
             embed = discord.Embed(
-                title="🤖 Comandos del Bot Creativo",
+                title="🎨 Comandos del Bot Creativo",
                 description="Lista de comandos disponibles:",
                 color=0x7289DA
             )
             
             commands_list = [
-                ("!inspiracion", "Obtiene inspiración creativa completa"),
+                ("!inspiracion", "Obtiene inspiración artística completa"),
                 ("!foto [búsqueda]", "Obtiene una foto inspiradora"),
-                ("!herramienta", "Obtiene una herramienta útil"),
-                ("!recurso", "Obtiene un recurso útil"),
-                ("!idea", "Genera una idea creativa"),
-                ("!prompt", "Genera un prompt para IA"),
+                ("!herramienta", "Obtiene una herramienta para artistas"),
+                ("!recurso", "Obtiene un recurso creativo"),
+                ("!idea", "Genera una idea artística"),
+                ("!prompt", "Genera un prompt para IA artística"),
                 ("!ayuda", "Muestra esta ayuda")
             ]
             
             for command, description in commands_list:
                 embed.add_field(name=command, value=description, inline=False)
             
-            embed.set_footer(text="Bot Creativo • Inspiración diaria para desarrolladores")
+            embed.set_footer(text="Bot Creativo • Inspiración diaria para artistas y creativos")
             await ctx.send(embed=embed)
     
     async def on_ready(self):
@@ -189,7 +189,7 @@ class CreativeBot(commands.Bot):
         """
         try:
             # Obtener contenido de las APIs
-            photo = unsplash_client.get_random_photo(query="inspiration")
+            photo = unsplash_client.get_random_photo(query="art creative inspiration")
             tool = apis_client.get_random_tool()
             resource = apis_client.get_random_resource()
             creative_idea = content_generator.generate_creative_idea()
@@ -197,8 +197,8 @@ class CreativeBot(commands.Bot):
             
             # Crear embed con el contenido
             embed = discord.Embed(
-                title="🌟 Inspiración Creativa Diaria",
-                description="Tu dosis diaria de creatividad y herramientas útiles",
+                title="🎨 Inspiración Artística Diaria",
+                description="Tu dosis diaria de creatividad visual y herramientas para artistas",
                 color=0x7289DA,
                 timestamp=datetime.now()
             )
@@ -240,7 +240,7 @@ class CreativeBot(commands.Bot):
                 inline=False
             )
             
-            embed.set_footer(text="Bot Creativo • Inspiración diaria para desarrolladores")
+            embed.set_footer(text="Bot Creativo • Inspiración diaria para artistas y creativos")
             
             await channel.send(embed=embed)
             print(f"Contenido diario publicado en {channel.name}")
