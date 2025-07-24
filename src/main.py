@@ -44,8 +44,10 @@ def run_discord_bot():
             loop.run_until_complete(discord_bot.start(token))
         except Exception as e:
             print(f"Error ejecutando bot de Discord: {e}")
+            print("El bot de Discord no se pudo iniciar, pero el servidor web seguirá funcionando")
     else:
         print("⚠️ DISCORD_BOT_TOKEN no configurado. Bot de Discord deshabilitado.")
+        print("El servidor web seguirá funcionando para pruebas")
 
 # API endpoints para el bot
 @app.route('/api/bot/status')
@@ -133,4 +135,5 @@ if __name__ == '__main__':
         print("🤖 Bot de Discord iniciado en hilo separado")
     
     print("🌐 Servidor Flask iniciado")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
