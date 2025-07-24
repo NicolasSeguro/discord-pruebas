@@ -39,11 +39,14 @@ class CreativeBot(commands.Bot):
         # Iniciar tarea de publicación diaria
         if not self.daily_post.is_running():
             self.daily_post.start()
+        
+        # Verificar comandos registrados
+        print(f"Comandos registrados: {[cmd.name for cmd in self.commands]}")
     
     async def on_command_error(self, ctx, error):
         """Manejo de errores de comandos."""
         if isinstance(error, commands.CommandNotFound):
-            await ctx.send("❌ Comando no encontrado. Usa `!help` para ver comandos disponibles.")
+            await ctx.send("❌ Comando no encontrado. Usa `!ayuda` para ver comandos disponibles.")
         else:
             print(f"Error en comando: {error}")
             await ctx.send("❌ Ocurrió un error al ejecutar el comando.")
@@ -227,7 +230,7 @@ class CreativeBot(commands.Bot):
         
         await ctx.send(embed=embed)
     
-    @commands.command(name='help_bot', aliases=['ayuda'])
+    @commands.command(name='help_bot', aliases=['ayuda', 'help'])
     async def help_command(self, ctx):
         """Muestra ayuda sobre los comandos disponibles."""
         embed = discord.Embed(
@@ -253,6 +256,11 @@ class CreativeBot(commands.Bot):
         embed.set_footer(text="Bot Creativo • Inspiración diaria para desarrolladores")
         
         await ctx.send(embed=embed)
+    
+    @commands.command(name='ping')
+    async def ping(self, ctx):
+        """Comando de prueba para verificar que el bot responde."""
+        await ctx.send("🏓 ¡Pong! Bot funcionando correctamente.")
 
 def create_bot():
     """Crea y retorna una instancia del bot."""
