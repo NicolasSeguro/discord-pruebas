@@ -44,31 +44,113 @@ class CreativeBot(commands.Bot):
         
         @self.command(name='inspiracion', aliases=['inspire', 'daily'])
         async def inspiracion(ctx):
-            await self.manual_inspiration(ctx)
+            # Implementar directamente aquí
+            photo = unsplash_client.get_random_photo(query="inspiration")
+            tool = apis_client.get_random_tool()
+            resource = apis_client.get_random_resource()
+            creative_idea = content_generator.generate_creative_idea()
+            ai_prompt = content_generator.generate_ai_prompt()
+            
+            embed = discord.Embed(
+                title="🌟 Inspiración Creativa Completa",
+                description="Tu dosis diaria de creatividad y herramientas útiles",
+                color=0x7289DA
+            )
+            
+            if photo:
+                embed.set_image(url=photo['urls']['regular'])
+            
+            embed.add_field(name="✍️ Idea Creativa", value=creative_idea, inline=False)
+            embed.add_field(name="🧰 Tool of the Day", value=f"**{tool['name']}**\n{tool['description']}\n🔗 {tool['url']}", inline=False)
+            embed.add_field(name="🔗 Recurso Útil", value=f"**{resource['name']}**\n{resource['description']}\n🔗 {resource['url']}", inline=False)
+            embed.add_field(name="🎲 Prompt para IA", value=f"*\"{ai_prompt}\"*", inline=False)
+            
+            await ctx.send(embed=embed)
         
         @self.command(name='foto', aliases=['photo', 'imagen'])
         async def foto(ctx, *, query=None):
-            await self.get_photo(ctx, query=query)
+            photo = unsplash_client.get_random_photo(query=query)
+            if photo:
+                embed = discord.Embed(
+                    title="📸 Foto Inspiradora",
+                    color=0x7289DA
+                )
+                embed.set_image(url=photo['urls']['regular'])
+                if photo.get('user'):
+                    embed.set_footer(text=f"Por: {photo['user']['name']}")
+                await ctx.send(embed=embed)
+            else:
+                await ctx.send("❌ No se pudo obtener una foto.")
         
         @self.command(name='herramienta', aliases=['tool'])
         async def herramienta(ctx):
-            await self.get_tool(ctx)
+            tool = apis_client.get_random_tool()
+            embed = discord.Embed(
+                title="🧰 Tool of the Day",
+                description=f"**{tool['name']}**\n{tool['description']}",
+                color=0x7289DA
+            )
+            embed.add_field(name="🔗 Enlace", value=tool['url'], inline=False)
+            embed.add_field(name="📂 Categoría", value=tool['category'], inline=True)
+            await ctx.send(embed=embed)
         
         @self.command(name='recurso', aliases=['resource'])
         async def recurso(ctx):
-            await self.get_resource(ctx)
+            resource = apis_client.get_random_resource()
+            embed = discord.Embed(
+                title="🔗 Recurso Útil",
+                description=f"**{resource['name']}**\n{resource['description']}",
+                color=0x7289DA
+            )
+            embed.add_field(name="🔗 Enlace", value=resource['url'], inline=False)
+            embed.add_field(name="📂 Tipo", value=resource['type'], inline=True)
+            await ctx.send(embed=embed)
         
         @self.command(name='idea', aliases=['creative'])
         async def idea(ctx):
-            await self.get_idea(ctx)
+            idea = content_generator.generate_creative_idea()
+            embed = discord.Embed(
+                title="✍️ Idea Creativa",
+                description=idea,
+                color=0x7289DA
+            )
+            embed.set_footer(text="💡 ¡Dale vida a esta idea!")
+            await ctx.send(embed=embed)
         
         @self.command(name='prompt', aliases=['ai'])
         async def prompt(ctx):
-            await self.get_prompt(ctx)
+            prompt = content_generator.generate_ai_prompt()
+            embed = discord.Embed(
+                title="🎲 Prompt para IA",
+                description=f"*\"{prompt}\"*",
+                color=0x7289DA
+            )
+            embed.set_footer(text="Pruébalo en Midjourney, ChatGPT, DALL-E, etc.")
+            await ctx.send(embed=embed)
         
         @self.command(name='ayuda', aliases=['help_bot'])
         async def ayuda(ctx):
-            await self.help_command(ctx)
+            embed = discord.Embed(
+                title="🤖 Comandos del Bot Creativo",
+                description="Lista de comandos disponibles:",
+                color=0x7289DA
+            )
+            
+            commands_list = [
+                ("!inspiracion", "Obtiene inspiración creativa completa"),
+                ("!foto [búsqueda]", "Obtiene una foto inspiradora"),
+                ("!herramienta", "Obtiene una herramienta útil"),
+                ("!recurso", "Obtiene un recurso útil"),
+                ("!idea", "Genera una idea creativa"),
+                ("!prompt", "Genera un prompt para IA"),
+                ("!ayuda", "Muestra esta ayuda")
+            ]
+            
+            for command, description in commands_list:
+                embed.add_field(name=command, value=description, inline=False)
+            
+            embed.set_footer(text="Bot Creativo • Inspiración diaria para desarrolladores")
+            await ctx.send(embed=embed)
     
     async def on_ready(self):
         """Evento que se ejecuta cuando el bot está listo."""
